@@ -1,0 +1,90 @@
+.flame {
+  & > * {
+    vertical-align: top;
+    box-sizing: border-box;
+  }
+  & > .top {
+    vertical-align: top;
+  }
+  & > .middle {
+    vertical-align: middle;
+  }
+  & > .bottom {
+    vertical-align: bottom;
+  }
+
+  $layouts: "" "mobile" "tablet" "desktop" "xdesktop";
+  @each $layout in $layouts {
+    $text: max-width;
+    @if $layout == mobile {
+      $minWidth: 480px;
+    }
+    @else if $layout == tablet {
+      $minWidth: 767px;
+    }
+    @else if $layout == desktop {
+      $minwidth: 1200px;
+    }
+    @else if $layout == xdesktop {
+      $minWidth: 1920px;
+    }
+    @else {
+      $minWidth: 0;
+      $text: min-width;
+    }
+    @media screen and (#{$text}: $minWidth) {
+      @for $i from 0 through 100 {
+        $width: $i;
+        > .w#{$layout}#{$i} {
+          width: 0% + $i;
+          display: inline-block;
+        }
+        > .m#{$layout}#{$i} {
+          margin-left: 0% + $i/2;
+          margin-right: 0% + $i/2;
+        }
+        > .p#{$layout}#{$i} {
+          padding-left: 0% + $i/2;
+          padding-right: 0% + $i/2;
+        }
+
+        > .push#{$layout}#{$i}{
+            margin-left:0% + $i;
+        }
+      }
+    }
+  }  //end each
+
+
+  .push{
+    margin-left:auto;
+    display: block;
+  }
+
+
+  @for $i from 0 through 100 {
+    $width: $i;
+    .pad-#{$i} {
+      padding: 0px + $i;
+
+    }
+
+    .mar-#{$i} {
+      margin: 0px + $i;
+    }
+
+    $types: "top" "left" "right" "bottom";
+    @each $type in $types {
+      .pad-#{$type}-#{$i} {
+        box-sizing: border-box;
+        padding-#{$type}: 0px + $i;
+      }
+    }
+
+    @each $type in $types {
+      .mar-#{$type}-#{$i} {
+        margin-#{$type}: 0px + $i;
+      }
+    }
+  }
+}

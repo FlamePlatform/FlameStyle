@@ -1,0 +1,28 @@
+@import "colors";
+@import "helper";
+
+
+input, textarea,a {
+  display:inline-block;
+}
+
+
+input,textarea,legend{
+  margin-bottom:1em;
+  font-size: 1em;
+}
+
+input[type="button"]{
+
+  &.primary{
+    @include gradient($primary,$dark-primary);
+    border-color:$dark-primary;
+    color:white;
+  }
+}
+
+input[type="button"],  input[type="submit"]{
+  padding:0.5em;
+  padding:1em;
+  white-space: normal;
+}

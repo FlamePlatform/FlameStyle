@@ -1,0 +1,16 @@
+@mixin box-sizing(){
+  box-sizing: border-box;
+}
+
+
+@mixin gradient($start,$end,$deg:200){
+  /* can be treated like a fallback */
+  background-color: $start;
+
+  /* will be "on top", if browser supports it */
+  background-image: linear-gradient(#{$deg}deg,$start, $end);
+
+  /* these will reset other properties, like background-position, but it does know what you mean */
+  background: $start;
+  background: linear-gradient(#{$deg}deg,$start, $end);
+}

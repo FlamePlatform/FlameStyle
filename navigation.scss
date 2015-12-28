@@ -1,0 +1,27 @@
+@import "colors";
+@import "helper";
+
+nav.flame ul {
+  li {
+    &.active {
+      background-color: $primary;
+      *{
+        color:white;
+      }
+    }
+    list-style-type: none;
+    a {
+      &:hover {
+        background-color: rgba(0,0,0,0.3);
+      }
+
+      &.light:hover {
+        background-color: rgba(255,255,255,0.1);
+      }
+
+      @include box-sizing;
+      text-decoration: none;
+      color: $dark-text;
+    }
+  }
+}
