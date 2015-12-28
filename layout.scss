@@ -13,6 +13,7 @@
     vertical-align: bottom;
   }
 
+
   $layouts: "" "mobile" "tablet" "desktop" "xdesktop";
   @each $layout in $layouts {
     $text: max-width;
@@ -51,6 +52,12 @@
         > .push#{$layout}#{$i}{
             margin-left:0% + $i;
         }
+
+        .h#{$layout}#{$i} {
+          height: 0% + $i;
+          display: inline-block;
+        }
+
       }
     }
   }  //end each
